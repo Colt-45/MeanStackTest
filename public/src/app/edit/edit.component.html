@@ -1,0 +1,31 @@
+<body>
+        <a [routerLink]="['/actions']">Go to polls</a>
+        <h3>{{question.question}}</h3>
+        <table>
+            <tr>
+                <th>Option</th>
+                <th>CurrentCount of votes</th>
+                <th>ACtion</th>
+            </tr>
+            <tr >
+                <td>{{ question.option1 }}</td>
+                <td>{{ question.vote1}}</td>
+                <td><button (click)="addvote1(question._id)">Vote</button></td>
+            </tr>
+            <tr >
+                <td>{{ question.option2 }}</td>
+                <td>{{ question.vote2}}</td>
+                <td><button (click)="addvote2(question._id)">Vote</button></td>
+            </tr>
+            <tr >
+                <td>{{ question.option3 }}</td>
+                <td>{{ question.vote3}}</td>
+                <td><button (click)="addvote3(question._id)">Vote</button></td>
+            </tr>
+            <tr >
+                <td>{{ question.option4 }}</td>
+                <td>{{ question.vote4}}</td>
+                <td><button (click)="addvote4(question._id)">Vote</button></td>
+            </tr>
+        </table>
+    </body>

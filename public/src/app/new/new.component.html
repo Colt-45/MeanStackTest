@@ -1,0 +1,15 @@
+<h3>Add a new Poll</h3>
+<h4><a [routerLink]="['/actions']">Back to Polls</a></h4>
+<form (submit)="addQuestion()" method="post">
+    <p *ngIf="errors != null"> <span *ngIf="errors.question">{{ errors.question.message }}</span></p>
+    <p>Question:<input type="text" name="newquestion.question" [(ngModel)]="newquestion.question" /></p>
+    <p *ngIf="errors != null"> <span *ngIf="errors.option1">{{ errors.option1.message }}</span></p>
+    <p>Option 1:<input type="text" name="newquestion.option1" [(ngModel)]="newquestion.option1" /></p>
+    <p *ngIf="errors != null"> <span *ngIf="errors.option2">{{ errors.option2.message }}</span></p>
+    <p>Option 2:<input type="text" name="newquestion.option2" [(ngModel)]="newquestion.option2" /></p>
+    <p *ngIf="errors != null"> <span *ngIf="errors.option3">{{ errors.option3.message }}</span></p>
+    <p>Option 3:<input type="text" name="newquestion.option3" [(ngModel)]="newquestion.option3" /></p>
+    <p *ngIf="errors != null"> <span *ngIf="errors.option4">{{ errors.option4.message }}</span></p>
+    <p>Option 4:<input type="text" name="newquestion.option4" [(ngModel)]="newquestion.option4" /></p>
+    <input type="submit" value="Create Poll">
+</form>

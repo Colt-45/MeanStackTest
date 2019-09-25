@@ -1,0 +1,43 @@
+<body>
+    <a [routerLink]="['/new']">create a new poll</a><a (click)="logout()">LogOut</a>
+    <h3>Current Polls</h3>
+    <form (submit)="search()">
+        <input type="text" name="val" [(ngModel)]="searched" />
+        <input type="submit" value="search">
+    </form>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Question</th>
+            <th>Date Posted</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor="let question of questions">
+            <td>{{ question.name }}</td>
+            <td><a [routerLink]="['/edit/', question._id]">{{ question.question }}</a></td>
+            <td>{{ question.updated_at }}</td>
+            <td>
+                <button *ngIf=" question.name == user" (click)="deleteQuestion(question._id)">Delete</button>
+            </td>
+        </tr>
+    </table>
+    <br>
+            <br>
+            <h3>Your search results</h3>
+    <table *ngIf="searchres">
+            <tr>
+                <th>Name</th>
+                <th>Question</th>
+                <th>Date Posted</th>
+                <th>Actions</th>
+            </tr>
+            <tr *ngFor="let question of searchres">
+                <td>{{ question.name }}</td>
+                <td><a [routerLink]="['/edit/', question._id]">{{ question.question }}</a></td>
+                <td>{{ question.updated_at }}</td>
+                <td>
+                    <button *ngIf=" question.name == user" (click)="deleteQuestion(question._id)">Delete</button>
+                </td>
+            </tr>
+        </table>
+</body>
